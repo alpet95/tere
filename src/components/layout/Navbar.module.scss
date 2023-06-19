@@ -1,0 +1,50 @@
+@use "@/styles/theme.module" as theme;
+
+.navbar {
+  position: absolute;
+  top: theme.$height-header;
+  left: 0;
+
+  width: 100%;
+  height: calc(100vh - theme.$height-header);
+
+  background-color: theme.$color-green;
+  transform: translateX(0%);
+  transition: 0.3s ease-out;
+  z-index: 20;
+
+  &-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  &-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-item {
+    margin-bottom: 1rem;
+    border-bottom: 2px solid theme.$color-white;
+
+    a {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: theme.$color-white;
+    }
+
+    &-active {
+      border-bottom: 2px solid theme.$color-yellow;
+
+      a {
+        color: theme.$color-yellow;
+      }
+    }
+  }
+}
