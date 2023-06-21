@@ -25,14 +25,13 @@ const NavbarItem = (props: NavbarItemProps) => {
   const { item, closeNavbarHandler } = props;
 
   const activeRoute = useRouter().asPath;
-  const activeClass = `${activeRoute === item.href && 
-                       classes["navbar-item-active"]}`;
+  const activeClass = `${
+    activeRoute === item.href && classes["navbar-item-active"]
+  }`;
 
   return (
     <li className={`${classes["navbar-item"]} ${activeClass}`}>
-      <Link
-        href={item.href}
-        onClick={closeNavbarHandler}>
+      <Link href={item.href} onClick={closeNavbarHandler}>
         {item.name}
       </Link>
     </li>
@@ -44,19 +43,17 @@ const Navbar = (props: NavbarProps) => {
 
   return (
     <div className={`${classes.navbar} ${className}`}>
-      <MaxWidthContainer>
-        <nav className={classes["navbar-content"]}>
-          <ul className={classes["navbar-items"]}>
-            {items.map((item) => (
-              <NavbarItem
-                key={item.id}
-                item={item}
-                closeNavbarHandler={closeNavbarHandler}
-              />
-            ))}
-          </ul>
-        </nav>
-      </MaxWidthContainer>
+      <nav className={classes["navbar-content"]}>
+        <ul className={classes["navbar-items"]}>
+          {items.map((item) => (
+            <NavbarItem
+              key={item.id}
+              item={item}
+              closeNavbarHandler={closeNavbarHandler}
+            />
+          ))}
+        </ul>
+      </nav>
     </div>
   );
 };

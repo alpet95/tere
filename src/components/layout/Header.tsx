@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import MaxWidthContainer from "./MaxWidthContainer";
 import Navbar from "./Navbar";
 
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -21,18 +20,18 @@ const Header = () => {
 
   return (
     <header className={classes.header}>
-      <MaxWidthContainer>
-        <div className={classes["header-content"]}>
-          <div className={classes["header-logo"]}>
-            <Link href="/" onClick={closeNavbarHandler}>
-              <Image
-                src="/images/logo/logo-header.png"
-                alt="Header Logo Image"
-                width={93}
-                height={26}
-              />
-            </Link>
-          </div>
+      <div className={classes["header-content"]}>
+        <div className={classes["header-logo"]}>
+          <Link href="/" onClick={closeNavbarHandler}>
+            <Image
+              src="/images/logo/logo-header.png"
+              alt="Header Logo Image"
+              width={93}
+              height={26}
+            />
+          </Link>
+        </div>
+        <div className={classes["mobile-view"]}>
           <div className={classes["header-actions"]}>
             <button
               className={classes["toggle-navbar-button"]}
@@ -40,13 +39,15 @@ const Header = () => {
               {openNavbar ? <FaTimes /> : <FaBars />}
             </button>
           </div>
+          <Navbar
+            className={!openNavbar && classes["navbar-hide"]}
+            closeNavbarHandler={closeNavbarHandler}
+          />
         </div>
-      </MaxWidthContainer>
-
-      <Navbar
-        className={!openNavbar && classes["navbar-hide"]}
-        closeNavbarHandler={closeNavbarHandler}
-      />
+        <div className={classes["desktop-view"]}>
+          <Navbar />
+        </div>
+      </div>
     </header>
   );
 };

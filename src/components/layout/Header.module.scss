@@ -1,15 +1,16 @@
 @use "@/styles/theme.module" as theme;
 
 .header {
-  // background-color: lightblue;
+  // background-color: lightsalmon;
 
   position: fixed;
   top: 0;
   left: 0;
 
+  padding: 1rem 1.25rem;
   width: 100%;
   height: theme.$height-header;
-  box-shadow: 0px 2px 2px rgb(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 2px theme.$color-green;
   z-index: 10;
 
   &-content {
@@ -47,4 +48,22 @@
 
 .navbar-hide {
   transform: translateX(-100%);
+}
+
+.desktop-view {
+  display: none;
+}
+
+@media screen and (min-width: 1025px) {
+  .header {
+    padding: 1rem 5%;
+  }
+
+  .mobile-view {
+    display: none;
+  }
+
+  .desktop-view {
+    display: block;
+  }
 }
