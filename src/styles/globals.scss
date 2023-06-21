@@ -42,6 +42,7 @@ p {
 }
 
 a {
+  color: theme.$color-black;
   text-decoration: none;
 }
 
@@ -53,9 +54,24 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1rem;
+
   border: none;
   outline: none;
   cursor: pointer;
   background-color: inherit;
+
+  font-size: 1rem;
 }
+
+img {
+  display: block;
+}
+
+/** 
+ * Responsive design breakpoints:
+ * 320px — 480px: Mobile devices
+ * 481px — 768px: iPads, Tablets
+ * 769px — 1024px: Small screens, laptops
+ * 1025px — 1200px: Desktops, large screens
+ * 1201px and more —  Extra large screens, TV
+ */
