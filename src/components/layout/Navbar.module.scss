@@ -2,11 +2,11 @@
 
 .navbar {
   position: absolute;
-  top: theme.$height-header;
+  top: theme.$height-header-mobile;
   left: 0;
 
   width: 100%;
-  height: calc(100vh - theme.$height-header);
+  height: calc(100vh - theme.$height-header-mobile);
 
   background-color: theme.$color-green;
   transform: translateX(0%);
@@ -53,7 +53,7 @@
   }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 769px) {
   .navbar {
     position: static;
 
