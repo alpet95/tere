@@ -89,3 +89,13 @@
     }
   }
 }
+
+@media screen and (min-width: 1025px) {
+  .navbar {
+    &-item {
+      a {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

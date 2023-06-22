@@ -2,49 +2,50 @@ import React from "react";
 import Image from "next/image";
 
 import Button from "../interface/Button";
-
-import heroImage from "../../../public/images/hero-image.png";
-import playStoreIcon from "../../../public/icons/button-icon-play-store.svg";
-import appStoreIcon from "../../../public/icons/button-icon-app-store.svg";
+import { HeroDataType } from "@/types/hero";
 
 import classes from "./Hero.module.scss";
 
-const Hero = () => {
+interface HeroProps {
+  data: HeroDataType;
+}
+
+const Hero = (props: HeroProps) => {
+  const { data } = props;
+
+  const title = data.text.title;
+  const description = data.text.description;
+  const heroImageSrc = data.image.src;
+  const heroImageAlt = data.image.alt;
+  const buttonsData = data.buttons;
+
+  const buttonsElement = buttonsData.map((button) => {
+    const key = button.key;
+    const src = button.icon.src;
+    const alt = button.icon.alt;
+    const width = button.icon.width;
+    const height = button.icon.height;
+    const text = button.text;
+
+    return (
+      <Button key={key}>
+        <Image src={src} alt={alt} width={width} height={height} />
+        {text}
+      </Button>
+    );
+  });
+
   return (
     <section className={classes.hero}>
       <div className={classes["hero-content"]}>
         <div className={classes["hero-image"]}>
-          <Image src={heroImage} alt="Hero Image" fill />
+          <Image src={heroImageSrc} alt={heroImageAlt} fill />
         </div>
+
         <div className={classes["hero-text"]}>
-          <h1 className={classes["hero-text-title"]}>
-            Download App, save money, make friends!
-          </h1>
-          <p className={classes["hero-text-description"]}>
-            It's simple and it's free. Play your part in reducing Carbon
-            Footprint and help Mother Nature to sustain its beauty. So what are
-            you waiting for? Lets ride together!
-          </p>
-          <div className={classes["hero-actions"]}>
-            <Button>
-              <Image
-                src={playStoreIcon}
-                alt="Play Store Icon"
-                width={26}
-                height={23}
-              />
-              Download
-            </Button>
-            <Button>
-              <Image
-                src={appStoreIcon}
-                alt="Apple Store Icon"
-                width={26}
-                height={23}
-              />
-              Download
-            </Button>
-          </div>
+          <h1 className={classes["hero-text-title"]}>{title}</h1>
+          <p className={classes["hero-text-description"]}>{description}</p>
+          <div className={classes["hero-actions"]}>{buttonsElement}</div>
         </div>
       </div>
     </section>
