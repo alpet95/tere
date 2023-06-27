@@ -39,7 +39,7 @@ const Hero = (props: HeroProps) => {
     <section className={classes.hero}>
       <div className={classes["hero-content"]}>
         <div className={classes["hero-image"]}>
-          <Image src={heroImageSrc} alt={heroImageAlt} fill />
+          <Image src={heroImageSrc} alt={heroImageAlt} fill priority />
         </div>
 
         <div className={classes["hero-text"]}>

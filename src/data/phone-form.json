@@ -1,0 +1,15 @@
+{
+  "page": "Phone Form",
+  "text": {
+    "title": "Let's go. Get a link to download the app."
+  },
+  "form": {
+    "input": {
+      "pattern": "[0-9]{5}[0-9]{6}",
+      "placeholder": "ex. 07911123456"
+    },
+    "button": {
+      "text": "Apply to drive"
+    }
+  }
+}

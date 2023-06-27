@@ -1,0 +1,95 @@
+@use "@/styles/theme.module" as theme;
+
+.phone-form {
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+
+  background-color: theme.$color-green;
+
+  &-header {
+    margin: 0 auto 1.5rem auto;
+    max-width: 280px;
+
+    font-weight: 600;
+    line-height: 1.15;
+    text-align: center;
+    color: theme.$color-white;
+  }
+
+  &-form {
+    margin: 0 auto;
+    max-width: 280px;
+  }
+
+  &-input {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    height: 48px;
+    border-radius: 0.25rem;
+
+    background-color: theme.$color-white;
+    color: theme.$color-grey-200;
+
+    &::placeholder {
+      color: theme.$color-grey-100;
+    }
+  }
+
+  &-button {
+    margin: 0.75rem 0;
+    width: 100%;
+    height: 48px;
+
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .phone-form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &-header {
+      margin: 0;
+      text-align: left;
+    }
+
+    &-form {
+      flex: 1;
+      margin: 0 0 0 1.5rem;
+    }
+
+    &-button {
+      margin: 0.5rem 0 0 0;
+    }
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .phone-form {
+    justify-content: space-between;
+    padding: 1.25rem 6%;
+
+    &-form {
+      display: flex;
+      height: 60px;
+      max-width: 750px;
+    }
+
+    &-input {
+      flex: 2;
+      height: 100%;
+
+      font-size: 1.25rem;
+    }
+
+    &-button {
+      flex: 1;
+      margin: 0 0 0 0.75rem;
+      height: 100%;
+
+      font-size: 1.25rem;
+    }
+  }
+}

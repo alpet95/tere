@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import MaxWidthContainer from "./MaxWidthContainer";
 import { NAVBAR_ITEMS as items } from "@/data/navbar-items";
 
 import classes from "./Navbar.module.scss";
@@ -25,9 +24,13 @@ const NavbarItem = (props: NavbarItemProps) => {
   const { item, closeNavbarHandler } = props;
 
   const activeRoute = useRouter().asPath;
-  const activeClass = `${
-    activeRoute === item.href && classes["navbar-item-active"]
-  }`;
+  let activeClass;
+  
+  useEffect(() => {
+    activeClass = `${
+      activeRoute === item.href && classes["navbar-item-active"]
+    }`;
+  }, [item.href]);
 
   return (
     <li className={`${classes["navbar-item"]} ${activeClass}`}>
