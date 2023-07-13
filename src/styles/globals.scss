@@ -74,6 +74,26 @@ img {
   display: block;
 }
 
+.text-green {
+  color: theme.$color-green;
+}
+
+@media screen and (min-width: 1025px) {
+  h2 {
+    font-size: 2.8rem;
+  }
+}
+
+// swiper pagination
+:root {
+  --swiper-pagination-color: #75bf7a;
+  --swiper-pagination-bullet-width: 10px;
+  --swiper-pagination-bullet-height: 10px;
+  --swiper-pagination-bullet-inactive-color: #75bf7a;
+  --swiper-pagination-bullet-inactive-opacity: 0.4;
+  --swiper-pagination-bullet-horizontal-gap: 3px;
+}
+
 /** 
  * Responsive design breakpoints:
  * 320px — 480px: Mobile devices
