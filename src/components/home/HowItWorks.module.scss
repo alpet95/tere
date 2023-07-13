@@ -1,0 +1,180 @@
+@use "@/styles/theme.module" as theme;
+
+.section {
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+}
+
+.heading {
+  margin: 0.5rem 0;
+
+  font-weight: 800;
+  line-height: 2;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.description {
+  margin: 0.5rem auto 1rem;
+  max-width: 425px;
+
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+
+  color: theme.$color-grey-200;
+}
+
+.image {
+  position: relative;
+
+  margin: 1rem 0;
+  width: 100%;
+  height: 448px;
+
+  img {
+    object-fit: contain;
+  }
+}
+
+.main {
+  display: none;
+}
+
+.swiper-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 1.5rem auto 1rem;
+  max-width: 450px;
+}
+
+.swiper-container {
+  margin-bottom: 1rem;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.swiper-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.5rem 1rem;
+  border: 2px solid theme.$color-green;
+  border-radius: 0.5rem;
+
+  text-align: center;
+
+  &-title {
+    margin: 0.5rem 0;
+
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  &-description {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: theme.$color-grey-200;
+  }
+}
+
+.swiper-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 769px) {
+  .swiper-demo {
+    max-width: none;
+  }
+
+  .swiper-item {
+    height: 280px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .section {
+    padding: 4rem 0;
+  }
+
+  .description {
+    max-width: 600px;
+    font-size: 1.4rem;
+  }
+
+  .swiper-demo {
+    display: none;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 400px 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "steps-item-1 main-image steps-item-2"
+      "steps-item-3 main-image steps-item-4";
+    gap: 1.5rem;
+
+    margin: 3rem auto;
+    max-width: 1100px;
+  }
+
+  /**
+    * This Sass loop sets "grid-area" property
+    * to each "steps-item-{index}" element of grid,
+    * defined by "grid-template-area" property.
+ */
+  @for $index from 1 through 4 {
+    $item: steps-item-#{$index};
+    ##{$item} {
+      grid-area: $item;
+    }
+  }
+
+  .steps-item {
+    display: flex;
+    flex-direction: column;
+
+    &:nth-child(odd) {
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    &:nth-child(even) {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    &-title {
+      margin: 0.5rem 0;
+
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    &-description {
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.3;
+      color: theme.$color-grey-200;
+    }
+
+    img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .image {
+    grid-area: main-image;
+  }
+}
