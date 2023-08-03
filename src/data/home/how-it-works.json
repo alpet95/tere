@@ -1,0 +1,57 @@
+{
+  "page": "how-it-works",
+  "text": {
+    "heading": "How Tere works",
+    "description": "Download and install the tere app. Enter your phone number and make your user account. when approved you may start driving."
+  },
+  "slides": [
+    {
+      "id": "slide-1",
+      "image": {
+        "src": "/images/bullets/bullet-image-1.png",
+        "alt": "Bullet Image 1"
+      },
+      "text": {
+        "title": "Request a ride",
+        "description": "Have to reach office or going for shopping? Just put your current location and destination and search a ride that suits you"
+      }
+    },
+    {
+      "id": "slide-2",
+      "image": {
+        "src": "/images/bullets/bullet-image-2.png",
+        "alt": "Bullet Image 2"
+      },
+      "text": {
+        "title": "Publish a ride",
+        "description": "Going somewhere but hate to travel alone - just post your ride details and publish it"
+      }
+    },
+    {
+      "id": "slide-3",
+      "image": {
+        "src": "/images/bullets/bullet-image-3.png",
+        "alt": "Bullet Image 3"
+      },
+      "text": {
+        "title": "Instant notifications",
+        "description": "Get instant notifications for your rides and be in contact with fellow riders all the time"
+      }
+    },
+    {
+      "id": "slide-4",
+      "image": {
+        "src": "/images/bullets/bullet-image-4.png",
+        "alt": "Bullet Image 4"
+      },
+      "text": {
+        "title": "Cashless payment",
+        "description": "Payment made easy by using your own Wallet - no more cash to carry"
+      }
+    }
+  ],
+  "image": {
+    "src": "/images/phone-image.png",
+    "alt": "Phone Image"
+  }
+}

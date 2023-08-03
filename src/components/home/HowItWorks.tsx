@@ -6,60 +6,23 @@ import { Pagination, Autoplay } from "swiper";
 import { PaginationOptions, AutoplayOptions } from "swiper/types";
 
 import { addGreenToHeading } from "@/helpers/utilities";
-import phoneImageSrc from "/public/images/phone-image.png";
+import { HowItWorksDataType } from "@/types/how-it-works";
+
 import classes from "./HowItWorks.module.scss";
 
-const HowItWorks = () => {
-  const slides = [
-    {
-      id: "slide-1",
-      image: {
-        src: "/images/bullets/bullet-image-1.png",
-        alt: "Bullet Image 1",
-      },
-      text: {
-        title: "Request a ride",
-        description:
-          "Have to reach office or going for shopping? Just put your current location and destination and search a ride that suits you",
-      },
-    },
-    {
-      id: "slide-2",
-      image: {
-        src: "/images/bullets/bullet-image-2.png",
-        alt: "Bullet Image 2",
-      },
-      text: {
-        title: "Publish a ride",
-        description:
-          "Going somewhere but hate to travel alone - just post your ride details and publish it",
-      },
-    },
-    {
-      id: "slide-3",
-      image: {
-        src: "/images/bullets/bullet-image-3.png",
-        alt: "Bullet Image 3",
-      },
-      text: {
-        title: "Instant notifications",
-        description:
-          "Get instant notifications for your rides and be in contact with fellow riders all the time",
-      },
-    },
-    {
-      id: "slide-4",
-      image: {
-        src: "/images/bullets/bullet-image-4.png",
-        alt: "Bullet Image 4",
-      },
-      text: {
-        title: "Cashless payment",
-        description:
-          "Payment made easy by using your own Wallet - no more cash to carry",
-      },
-    },
-  ];
+interface HowItWorksProps {
+  data: HowItWorksDataType;
+}
+
+const HowItWorks = (props: HowItWorksProps) => {
+  const { data } = props;
+
+  const heading = data.text.heading;
+  const formattedHeading = addGreenToHeading(heading);
+  const description = data.text.description;
+  const slides = data.slides;
+  const phoneImageSrc = data.image.src;
+  const phoneImageAlt = data.image.alt;
 
   const pagination: PaginationOptions = {
     el: ".pagination-container",
@@ -80,19 +43,13 @@ const HowItWorks = () => {
     },
   };
 
-  const heading = "How Tere works";
-  const formattedHeading = addGreenToHeading(heading);
-
   return (
     <section className={classes.section}>
       <h2
         className={classes.heading}
         dangerouslySetInnerHTML={{ __html: formattedHeading }}
       ></h2>
-      <p className={classes.description}>
-        Download and install the tere app. Enter your phone number and make your
-        user account. when approved you may start driving.
-      </p>
+      <p className={classes.description}>{description}</p>
 
       <div className={classes.main}>
         {slides.map((slide, index) => {
@@ -116,7 +73,7 @@ const HowItWorks = () => {
         })}
 
         <div className={classes.image}>
-          <Image src={phoneImageSrc} alt="Slider Phone Image" fill />
+          <Image src={phoneImageSrc} alt={phoneImageAlt} fill />
         </div>
       </div>
 
