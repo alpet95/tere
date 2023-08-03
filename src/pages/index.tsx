@@ -6,6 +6,7 @@ import { fetchPageData, dataFolderPath } from "@/helpers/data-utilities";
 import Hero from "@/components/home/Hero";
 import PhoneForm from "@/components/home/PhoneForm";
 import HowItWorks from "@/components/home/HowItWorks";
+import Benefits from "@/components/home/Benefits";
 
 import { HeroDataType } from "@/types/hero";
 import { PhoneFormDataType } from "@/types/phone-form";
@@ -62,6 +63,7 @@ const Home = (props: HomeProps) => {
             return null;
         }
       })}
+      <Benefits />
     </Fragment>
   );
 };

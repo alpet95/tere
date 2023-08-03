@@ -1,0 +1,91 @@
+@use "@/styles/theme.module" as theme;
+
+.section {
+  // margin-bottom: 2rem;
+  padding: 1rem 0;
+}
+
+.heading {
+  margin: 0.5rem 0;
+
+  font-weight: 800;
+  line-height: 2;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.swiper-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 1rem auto;
+  max-width: 450px;
+}
+
+.swiper-container {
+  margin-bottom: 1rem;
+  padding: 0 0.5rem;
+  width: 100%;
+}
+
+.swiper-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.5rem 1rem; 
+  margin: 0.5rem 0;
+  box-shadow: 0 0 4px theme.$color-green;
+  border-radius: 0.5rem;
+  text-align: center;
+
+  &-title {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    font-weight: 600;
+    text-align: left;
+
+    span {
+      margin-right: 1.5rem;
+
+      font-size: 4rem;
+      font-weight: 500;
+      line-height: 1.35;
+      color: theme.$color-green;
+    }
+  }
+
+  &-image {
+    margin: 0.5rem 0;
+    height: auto;
+    object-fit: contain;
+  }
+
+  &-description {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: theme.$color-grey-200;
+  }
+}
+
+.swiper-pagination {
+  text-align: center;
+}
+
+@media screen and (min-width: 769px) {
+  .swiper-block {
+    max-width: none;
+  }
+
+  .swiper-item {
+    height: auto;
+  }
+}
