@@ -1,6 +1,7 @@
-import React, { Fragment, useState, useEffect } from "react";
-import fs from "fs/promises";
+import React, { Fragment } from "react";
+
 import path from "path";
+import { fetchPageData, dataFolderPath } from "@/helpers/data-utilities";
 
 import Hero from "@/components/home/Hero";
 import PhoneForm from "@/components/home/PhoneForm";
@@ -8,71 +9,70 @@ import HowItWorks from "@/components/home/HowItWorks";
 
 import { HeroDataType } from "@/types/hero";
 import { PhoneFormDataType } from "@/types/phone-form";
+import { HowItWorksDataType } from "@/types/how-it-works";
+
+type ComponentDataType = HeroDataType | PhoneFormDataType | HowItWorksDataType;
+type ComponentMapDataType = {
+  [key: string]: ComponentDataType;
+};
 
 interface HomeProps {
-  data: any[];
-  // heroData: HeroDataType;
-  // phoneFormData: PhoneFormDataType;
+  data: ComponentDataType[];
 }
 
-const pages = ["hero", "phone-form"];
+const components = ["hero", "phone-form", "how-it-works"];
 
 const Home = (props: HomeProps) => {
   const { data } = props;
+  const componentDataMap: ComponentMapDataType = data.reduce(
+    (acc: ComponentMapDataType, item) => {
+      acc[item.page] = item;
+      return acc;
+    },
+    {}
+  );
 
   return (
     <Fragment>
-      <Hero data={data[0]} />
-      <PhoneForm data={data[1]} />
-      <HowItWorks />
+      {components.map((component) => {
+        const componentData: ComponentDataType = componentDataMap[component];
+        switch (component) {
+          case "hero":
+            return (
+              <Hero
+                key={componentData.page}
+                data={componentData as HeroDataType}
+              />
+            );
+          case "phone-form":
+            return (
+              <PhoneForm
+                key={componentData.page}
+                data={componentData as PhoneFormDataType}
+              />
+            );
+          case "how-it-works":
+            return (
+              <HowItWorks
+                key={componentData.page}
+                data={componentData as HowItWorksDataType}
+              />
+            );
+          default:
+            return null;
+        }
+      })}
     </Fragment>
   );
 };
 
 export async function getStaticProps() {
-  try {
-    const filePaths = [
-      path.join(process.cwd(), "src", "data", "hero.json"),
-      path.join(process.cwd(), "src", "data", "phone-form.json"),
-    ];
-    const data = await Promise.all(
-      filePaths.map(async (path) => {
-        const fileData = await fs.readFile(path);
-        const parsedData = JSON.parse(fileData.toString());
-        return parsedData;
-      })
-    );
+  const pageDataFolderPath = path.join(dataFolderPath, "home");
+  const data = await fetchPageData(pageDataFolderPath);
 
-    return {
-      props: { data },
-    };
-  } catch (error) {
-    console.error("Error reading or parsing files:", error);
-
-    return {
-      props: { data: [] },
-    };
-  }
-
-  // const filePath = path.join(process.cwd(), "src", "data", "hero.json");
-  // const fileData = await fs.readFile(filePath);
-  // const heroData = JSON.parse(fileData.toString());
-
-  // const filePathPhoneForm = path.join(
-  //   process.cwd(),
-  //   "src",
-  //   "data",
-  //   "phone-form.json"
-  // );
-  // const fileDataPhoneForm = await fs.readFile(filePathPhoneForm);
-  // const phoneFormData = JSON.parse(fileDataPhoneForm.toString());
-
-  // return {
-  //   props: {
-  //     heroData: heroData,
-  //     phoneFormData: phoneFormData,
-  //   },
-  // };
+  return {
+    props: { data },
+  };
 }
 
 export default Home;
