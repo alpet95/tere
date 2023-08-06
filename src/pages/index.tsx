@@ -11,8 +11,9 @@ import Benefits from "@/components/home/Benefits";
 import { HeroDataType } from "@/types/hero";
 import { PhoneFormDataType } from "@/types/phone-form";
 import { HowItWorksDataType } from "@/types/how-it-works";
+import { BenefitsDataType } from "@/types/benefits";
 
-type ComponentDataType = HeroDataType | PhoneFormDataType | HowItWorksDataType;
+type ComponentDataType = HeroDataType | PhoneFormDataType | HowItWorksDataType | BenefitsDataType;
 type ComponentMapDataType = {
   [key: string]: ComponentDataType;
 };
@@ -21,7 +22,7 @@ interface HomeProps {
   data: ComponentDataType[];
 }
 
-const components = ["hero", "phone-form", "how-it-works"];
+const components = ["hero", "phone-form", "how-it-works", "benefits"];
 
 const Home = (props: HomeProps) => {
   const { data } = props;
@@ -59,11 +60,17 @@ const Home = (props: HomeProps) => {
                 data={componentData as HowItWorksDataType}
               />
             );
+          case "benefits":
+            return (
+              <Benefits
+                key={componentData.page}
+                data={componentData as BenefitsDataType}
+              />
+            );
           default:
             return null;
         }
       })}
-      <Benefits />
     </Fragment>
   );
 };

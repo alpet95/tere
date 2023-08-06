@@ -1,0 +1,50 @@
+{
+  "page": "benefits",
+  "text": {
+    "heading": "Tere Benefits"
+  },
+  "slides": [
+    {
+      "id": "slide-1",
+      "image": {
+        "src": "/images/benefits/benefits-image-1.png",
+        "alt": "Benefits Image 1"
+      },
+      "text": {
+        "title": {
+          "span": "01. ",
+          "text": "Flexible working hours"
+        },
+        "description": "You can decide when and how much time you want to drive, offering you the flexibility to tailor your schedule according to your preferences."
+      }
+    },
+    {
+      "id": "slide-2",
+      "image": {
+        "src": "/images/benefits/benefits-image-2.png",
+        "alt": "Benefits Image 2"
+      },
+      "text": {
+        "title": {
+          "span": "02. ",
+          "text": "Earnings"
+        },
+        "description": "By driving with Tere, you can earn more. Join our platform today to take advantage of competitive fares and opportunities for increased income."
+      }
+    },
+    {
+      "id": "slide-3",
+      "image": {
+        "src": "/images/benefits/benefits-image-3.png",
+        "alt": "Benefits Image 3"
+      },
+      "text": {
+        "title": {
+          "span": "03. ",
+          "text": "Customer support 24/7"
+        },
+        "description": "Tere is a local service provider and we are proud to support you in your local language. We are proud to be at your service 24/7!"
+      }
+    }
+  ]
+}

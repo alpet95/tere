@@ -42,7 +42,6 @@ const HowItWorks = (props: HowItWorksProps) => {
       slidesPerView: 2,
       slidesPerGroup: 2,
       spaceBetween: 50,
-      autoHeight: false,
     },
   };
 
@@ -91,7 +90,6 @@ const HowItWorks = (props: HowItWorksProps) => {
           speed={500}
           breakpoints={breakpoints}
           loop
-          // autoHeight
         >
           {slides.map((slide) => {
             const key = slide.id;
