@@ -57,17 +57,14 @@ const Benefits = (props: BenefitsProps) => {
         >
           {slides.map((slide) => {
             const key = slide.id;
-            const src = slide.image.src;
-            const alt = slide.image.alt;
-            const title = slide.text.title.text;
-            const span = slide.text.title.span;
-            const description = slide.text.description;
+            const { src, alt } = slide.image;
+            const { title, description } = slide.text;
 
             return (
               <SwiperSlide key={key} className={classes["swiper-item"]}>
                 <h4 className={classes["swiper-item-title"]}>
-                  <span>{span}</span>
-                  {title}
+                  <span>{title.span}</span>
+                  {title.text}
                 </h4>
                 <Image
                   className={classes["swiper-item-image"]}
@@ -91,18 +88,15 @@ const Benefits = (props: BenefitsProps) => {
       <div className={classes["benefits-block"]}>
         {slides.map((slide) => {
           const key = slide.id;
-          const src = slide.image.src;
-          const alt = slide.image.alt;
-          const title = slide.text.title.text;
-          const span = slide.text.title.span;
-          const description = slide.text.description;
+          const { src, alt } = slide.image;
+          const { title, description } = slide.text;
 
           return (
             <div className={classes["benefits-item"]} key={key}>
               <div className={classes["benefits-item-text"]}>
                 <h4 className={classes["benefits-item-title"]}>
-                  <span>{span}</span>
-                  {title}
+                  <span>{title.span}</span>
+                  {title.text}
                 </h4>
                 <p className={classes["benefits-item-description"]}>
                   {description}
