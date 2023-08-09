@@ -1,6 +1,10 @@
 import React, { ReactNode, Fragment } from "react";
-import MaxWidthContainer from "./MaxWidthContainer";
+
 import Header from "./Header";
+import Footer from "./Footer";
+import MaxWidthContainer from "./MaxWidthContainer";
+
+import { FOOTER_DATA as footerData } from "@/data/layout/footer";
 
 interface Props {
   children: ReactNode;
@@ -15,7 +19,7 @@ const Layout = (props: Props) => {
       <main>
         <MaxWidthContainer>{children}</MaxWidthContainer>
       </main>
-      <footer></footer>
+      <Footer data={footerData} />
     </Fragment>
   );
 };
