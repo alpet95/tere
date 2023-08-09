@@ -25,8 +25,11 @@ const HowItWorks = (props: HowItWorksProps) => {
   const phoneImageAlt = data.image.alt;
 
   const pagination: PaginationOptions = {
-    el: ".pagination-container",
+    el: ".swiper-pagination",
     clickable: true,
+    renderBullet: function (_, className) {
+      return `<span class="${className}"></span>`;
+    },
   };
 
   const autoplay: AutoplayOptions = {
@@ -39,7 +42,6 @@ const HowItWorks = (props: HowItWorksProps) => {
       slidesPerView: 2,
       slidesPerGroup: 2,
       spaceBetween: 50,
-      autoHeight: false,
     },
   };
 
@@ -88,7 +90,6 @@ const HowItWorks = (props: HowItWorksProps) => {
           speed={500}
           breakpoints={breakpoints}
           loop
-          autoHeight
         >
           {slides.map((slide) => {
             const key = slide.id;
@@ -110,7 +111,7 @@ const HowItWorks = (props: HowItWorksProps) => {
         </Swiper>
 
         <div
-          className={`pagination-container ${classes["swiper-pagination"]}`}
+          className={`swiper-pagination ${classes["swiper-pagination"]}`}
         ></div>
       </div>
     </section>
