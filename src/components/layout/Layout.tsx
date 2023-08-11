@@ -1,25 +1,26 @@
-import React, { ReactNode, Fragment } from "react";
+import React, { ReactNode, Fragment, useReducer, useEffect } from "react";
 
 import Header from "./Header";
 import Footer from "./Footer";
 import MaxWidthContainer from "./MaxWidthContainer";
 
-import { FOOTER_DATA as footerData } from "@/data/layout/footer";
+import useDataReducer from "@/helpers/hooks/useDataReducer";
 
-interface Props {
+interface LayoutProps {
   children: ReactNode;
 }
 
-const Layout = (props: Props) => {
+const Layout = (props: LayoutProps) => {
   const { children } = props;
+  const data = useDataReducer();
 
   return (
     <Fragment>
-      <Header />
+      {data.header && <Header data={data.header} />}
       <main>
         <MaxWidthContainer>{children}</MaxWidthContainer>
       </main>
-      <Footer data={footerData} />
+      {data.footer && <Footer data={data.footer} />}
     </Fragment>
   );
 };

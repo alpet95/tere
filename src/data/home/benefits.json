@@ -1,5 +1,6 @@
 {
-  "page": "benefits",
+  "component": "benefits",
+  "order": 4,
   "text": {
     "heading": "Tere Benefits"
   },

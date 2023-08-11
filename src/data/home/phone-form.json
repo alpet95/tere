@@ -1,5 +1,6 @@
 {
-  "page": "phone-form",
+  "component": "phone_form",
+  "order": 2,
   "text": {
     "title": "Let's go. Get a link to download the app."
   },

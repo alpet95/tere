@@ -3,11 +3,18 @@ import Link from "next/link";
 import Image from "next/image";
 
 import Navbar from "./Navbar";
+import { HeaderDataType } from "@/types/header";
 
 import { FaBars, FaTimes } from "react-icons/fa";
 import classes from "./Header.module.scss";
 
-const Header = () => {
+interface HeaderProps {
+  data: HeaderDataType;
+}
+
+const Header = (props: HeaderProps) => {
+  const { data } = props;
+  const items = data["navbar-items"];
   const [openNavbar, setOpenNavbar] = useState(false);
 
   const toggleNavbarHandler = () => {
@@ -35,17 +42,19 @@ const Header = () => {
           <div className={classes["header-actions"]}>
             <button
               className={classes["toggle-navbar-button"]}
-              onClick={toggleNavbarHandler}>
+              onClick={toggleNavbarHandler}
+            >
               {openNavbar ? <FaTimes /> : <FaBars />}
             </button>
           </div>
           <Navbar
             className={!openNavbar && classes["navbar-hide"]}
             closeNavbarHandler={closeNavbarHandler}
+            data={items}
           />
         </div>
         <div className={classes["desktop-view"]}>
-          <Navbar />
+          <Navbar data={items} />
         </div>
       </div>
     </header>

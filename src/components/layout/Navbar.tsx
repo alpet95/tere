@@ -2,11 +2,14 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { NAVBAR_ITEMS as items } from "@/data/navbar-items";
-
 import classes from "./Navbar.module.scss";
 
 interface NavbarProps {
+  data: {
+    id: string;
+    href: string;
+    name: string;
+  }[];
   className?: string | false;
   closeNavbarHandler?: () => void;
 }
@@ -22,10 +25,9 @@ interface NavbarItemProps {
 
 const NavbarItem = (props: NavbarItemProps) => {
   const { item, closeNavbarHandler } = props;
-
   const activeRoute = useRouter().asPath;
   let activeClass;
-  
+
   useEffect(() => {
     activeClass = `${
       activeRoute === item.href && classes["navbar-item-active"]
@@ -42,7 +44,7 @@ const NavbarItem = (props: NavbarItemProps) => {
 };
 
 const Navbar = (props: NavbarProps) => {
-  const { className, closeNavbarHandler } = props;
+  const { data: items, className, closeNavbarHandler } = props;
 
   return (
     <div className={`${classes.navbar} ${className}`}>
