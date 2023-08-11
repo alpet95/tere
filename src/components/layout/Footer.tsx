@@ -17,7 +17,10 @@ const Footer = (props: FooterProps) => {
   const { src, alt, width, height } = data.logo;
   const logo = { src, alt, width, height };
 
-  const { title, address: { location, email, phone }} = data.text;
+  const {
+    title,
+    address: { location, email, phone },
+  } = data.text;
   const address = { title, location, email, phone };
 
   const buttonsData = data.buttons;

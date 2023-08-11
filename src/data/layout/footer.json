@@ -1,13 +1,10 @@
 {
-  "component": "hero",
-  "order": 1,
-  "text": {
-    "title": "Download App, save money, make friends!",
-    "description": "It's simple and it's free. Play your part in reducing Carbon Footprint and help Mother Nature to sustain its beauty. So what are you waiting for? Lets ride together!"
-  },
-  "image": {
-    "src": "/images/hero-image.png",
-    "alt": "Hero Image"
+  "page": "footer",
+  "logo": {
+    "src": "/images/logo/logo-footer.png",
+    "alt": "Footer Logo Image",
+    "width": 131,
+    "height": 37
   },
   "buttons": [
     {
@@ -30,5 +27,13 @@
       },
       "text": "Download"
     }
-  ]
+  ],
+  "text": {
+    "title": "Be Our Friend",
+    "address": {
+      "location": "123, Elm Street, London",
+      "email": "goteredemo@gmail.com",
+      "phone": "012-345-6789"
+    }
+  }
 }

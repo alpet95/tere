@@ -1,5 +1,6 @@
 export interface HeroDataType {
-  page: string;
+  component: string;
+  order: number;
   text: {
     title: string;
     description: string;

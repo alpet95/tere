@@ -1,5 +1,6 @@
 {
-  "page": "how-it-works",
+  "component": "how_it_works",
+  "order": 3,
   "text": {
     "heading": "How Tere works",
     "description": "Download and install the tere app. Enter your phone number and make your user account. when approved you may start driving."

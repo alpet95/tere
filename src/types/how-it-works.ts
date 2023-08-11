@@ -1,5 +1,6 @@
 export interface HowItWorksDataType {
-  page: string;
+  component: string;
+  order: number;
   text: {
     heading: string;
     description: string;

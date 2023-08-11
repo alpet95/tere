@@ -1,5 +1,6 @@
 export interface PhoneFormDataType {
-  page: string;
+  component: string;
+  order: number;
   text: {
     title: string;
   };
