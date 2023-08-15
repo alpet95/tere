@@ -20,31 +20,13 @@
   }
 }
 
-@mixin item-description {
-  margin: 0.5rem 0;
-
-  font-size: 1.1rem;
-  font-weight: 500;
-  line-height: 1.2;
-  color: theme.$color-grey-200;
-}
-
 @mixin item-shadow {
   box-shadow: 0 0 4px theme.$color-green;
   border-radius: 0.5rem;
 }
 
 .section {
-  // margin-bottom: 2rem;
   padding: 1rem 0;
-}
-
-.heading {
-  margin: 0.5rem 0;
-
-  font-weight: 800;
-  text-align: center;
-  text-transform: uppercase;
 }
 
 .swiper-block {
@@ -64,7 +46,7 @@
 
 .swiper-item {
   @include item-shadow;
-
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,17 +62,7 @@
 
   &-image {
     margin: 0.5rem 0;
-    height: auto;
-    object-fit: contain;
   }
-
-  &-description {
-    @include item-description;
-  }
-}
-
-.swiper-pagination {
-  text-align: center;
 }
 
 .benefits-block {
@@ -134,13 +106,8 @@
       @include item-title;
     }
 
-    &-description {
-      @include item-description;
-    }
-
     &-image {
-      flex: 1;
-      object-fit: contain;
+      flex: 0 1 auto;
     }
   }
 }
@@ -178,6 +145,7 @@
 
     &-image {
       max-width: 248px;
+      width: auto;
       height: 226px;
     }
   }

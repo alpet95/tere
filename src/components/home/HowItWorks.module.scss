@@ -1,47 +1,21 @@
 @use "@/styles/theme.module" as theme;
 
 .section {
-  // margin-bottom: 2rem;
   padding: 1rem 0;
-}
-
-.heading {
-  margin: 0.5rem 0;
-
-  font-weight: 800;
-  text-align: center;
-  text-transform: uppercase;
 }
 
 .description {
   margin: 0.5rem auto 1rem;
   max-width: 425px;
 
-  font-size: 1.1rem;
-  font-weight: 500;
-  line-height: 1.2;
   text-align: center;
-
-  color: theme.$color-grey-200;
 }
 
-.image {
-  position: relative;
-
-  margin: 1rem 0;
-  width: 100%;
-  height: 448px;
-
-  img {
-    object-fit: contain;
-  }
-}
-
-.main {
+.steps-desktop {
   display: none;
 }
 
-.swiper-demo {
+.steps-mobile {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,21 +49,10 @@
     font-weight: 800;
     text-transform: uppercase;
   }
-
-  &-description {
-    font-size: 1.1rem;
-    font-weight: 500;
-    line-height: 1.2;
-    color: theme.$color-grey-200;
-  }
-}
-
-.swiper-pagination {
-  position: static;
 }
 
 @media screen and (min-width: 769px) {
-  .swiper-demo {
+  .steps-mobile {
     max-width: none;
   }
 
@@ -105,14 +68,13 @@
 
   .description {
     max-width: 600px;
-    font-size: 1.4rem;
   }
 
-  .swiper-demo {
+  .steps-mobile {
     display: none;
   }
 
-  .main {
+  .steps-desktop {
     display: grid;
     grid-template-columns: 1fr 400px 1fr;
     grid-template-rows: 1fr 1fr;
@@ -160,19 +122,22 @@
 
     &-description {
       font-size: 1.25rem;
-      font-weight: 500;
       line-height: 1.3;
-      color: theme.$color-grey-200;
     }
 
     img {
+      margin-bottom: 0.5rem;
       width: 60px;
       height: 60px;
-      margin-bottom: 0.5rem;
     }
   }
 
-  .image {
+  .main-image {
     grid-area: main-image;
+    position: relative;
+
+    margin: 1rem 0;
+    width: 100%;
+    height: 448px;
   }
 }

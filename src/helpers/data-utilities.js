@@ -30,7 +30,7 @@ export const dataFolderPath = path.join(process.cwd(), "src", "data");
 
 export async function getPageData(pageName) {
   try {
-    const response = await fetch(`${process.env.api_endpoint}/page-data`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/page-data`, {
       method: "POST",
       body: JSON.stringify({ pageName }),
       headers: {

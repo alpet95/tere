@@ -1,4 +1,5 @@
 import React from "react";
+
 import Button from "../interface/Button";
 import { PhoneFormDataType } from "@/types/phone-form";
 
@@ -12,24 +13,22 @@ const PhoneForm = (props: PhoneFormProps) => {
   const { data } = props;
 
   const title = data.text.title;
-  const inputPattern = data.form.input.pattern;
-  const inputPlaceholder = data.form.input.placeholder;
-  const buttonText = data.form.button.text;
+  const { input, button } = data.form;
 
   return (
     <section className={classes["phone-form"]}>
-      <h2 className={classes["phone-form-header"]}>{title}</h2>
+      <h3 className={classes["phone-form-heading"]}>{title}</h3>
 
       <form className={classes["phone-form-form"]}>
         <input
           className={classes["phone-form-input"]}
           type="tel"
-          pattern={inputPattern}
-          placeholder={inputPlaceholder}
+          pattern={input.pattern}
+          placeholder={input.placeholder}
           required
         />
         <Button className={classes["phone-form-button"]} type="submit">
-          {buttonText}
+          {button.text}
         </Button>
       </form>
     </section>

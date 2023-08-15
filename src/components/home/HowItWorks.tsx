@@ -17,15 +17,12 @@ interface HowItWorksProps {
 const HowItWorks = (props: HowItWorksProps) => {
   const { data } = props;
 
-  const heading = data.text.heading;
+  const { slides, image } = data;
+  const { heading, description } = data.text;
   const formattedHeading = addGreenToHeading(heading);
-  const description = data.text.description;
-  const slides = data.slides;
-  const phoneImageSrc = data.image.src;
-  const phoneImageAlt = data.image.alt;
 
   const pagination: PaginationOptions = {
-    el: ".swiper-pagination",
+    el: ".pagination-howitworks",
     clickable: true,
     renderBullet: function (_, className) {
       return `<span class="${className}"></span>`;
@@ -50,37 +47,10 @@ const HowItWorks = (props: HowItWorksProps) => {
       <h2
         className={classes.heading}
         dangerouslySetInnerHTML={{ __html: formattedHeading }}
-      ></h2>
+      />
       <p className={classes.description}>{description}</p>
 
-      <div className={classes.main}>
-        {slides.map((slide, index) => {
-          const key = slide.id;
-          const src = slide.image.src;
-          const alt = slide.image.alt;
-          const title = slide.text.title;
-          const description = slide.text.description;
-
-          return (
-            <div
-              key={key}
-              id={classes[`steps-item-${index + 1}`]}
-              className={classes["steps-item"]}
-            >
-              <Image src={src} alt={alt} width={55} height={55} />
-              <h4 className={classes["steps-item-title"]}>{title}</h4>
-              <p className={classes["steps-item-description"]}>{description}</p>
-            </div>
-          );
-        })}
-
-        <div className={classes.image}>
-          <Image src={phoneImageSrc} alt={phoneImageAlt} fill />
-        </div>
-      </div>
-
-      {/* mobile */}
-      <div className={classes["swiper-demo"]}>
+      <div className={classes["steps-mobile"]}>
         <Swiper
           className={classes["swiper-container"]}
           modules={[Pagination, Autoplay]}
@@ -92,27 +62,51 @@ const HowItWorks = (props: HowItWorksProps) => {
           loop
         >
           {slides.map((slide) => {
-            const key = slide.id;
-            const src = slide.image.src;
-            const alt = slide.image.alt;
-            const title = slide.text.title;
-            const description = slide.text.description;
+            const { id: key, image, text } = slide;
 
             return (
               <SwiperSlide key={key} className={classes["swiper-item"]}>
-                <Image src={src} alt={alt} width={55} height={55} />
-                <h4 className={classes["swiper-item-title"]}>{title}</h4>
+                <Image src={image.src} alt={image.alt} width={55} height={55} />
+                <h4 className={classes["swiper-item-title"]}>{text.title}</h4>
                 <p className={classes["swiper-item-description"]}>
-                  {description}
+                  {text.description}
                 </p>
               </SwiperSlide>
             );
           })}
         </Swiper>
 
-        <div
-          className={`swiper-pagination ${classes["swiper-pagination"]}`}
-        ></div>
+        <div className="pagination-howitworks swiper-pagination"></div>
+      </div>
+
+      <div className={classes["steps-desktop"]}>
+        {slides.map((slide, index) => {
+          const { id: key, image, text } = slide;
+
+          return (
+            <div
+              key={key}
+              id={classes[`steps-item-${index + 1}`]}
+              className={classes["steps-item"]}
+            >
+              <Image src={image.src} alt={image.alt} width={55} height={55} />
+              <h4 className={classes["steps-item-title"]}>{text.title}</h4>
+              <p className={classes["steps-item-description"]}>
+                {text.description}
+              </p>
+            </div>
+          );
+        })}
+
+        <div className={classes["main-image"]}>
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            priority
+            sizes="(min-width: 769px) 100vw, (min-width: 1025px) 100vw, 100vw"
+          />
+        </div>
       </div>
     </section>
   );

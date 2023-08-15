@@ -25,16 +25,16 @@ const Footer = (props: FooterProps) => {
 
   const buttonsData = data.buttons;
   const buttonsElement = buttonsData.map((button) => {
-    const key = button.key;
-    const src = button.icon.src;
-    const alt = button.icon.alt;
-    const width = button.icon.width;
-    const height = button.icon.height;
-    const text = button.text;
+    const { key, icon, text } = button;
 
     return (
       <Button key={key}>
-        <Image src={src} alt={alt} width={width} height={height} />
+        <Image
+          src={icon.src}
+          alt={icon.alt}
+          width={icon.width}
+          height={icon.height}
+        />
         {text}
       </Button>
     );
