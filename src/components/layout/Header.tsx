@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -19,9 +19,9 @@ const Header = (props: HeaderProps) => {
 
   const [openNavbar, setOpenNavbar] = useState(false);
 
-  const preventPageScrolling = () => {
+  const preventPageScrolling = useCallback(() => {
     document.body.style.overflow = openNavbar ? "hidden" : "unset";
-  };
+  }, [openNavbar]);
 
   useEffect(() => {
     preventPageScrolling();
@@ -29,7 +29,7 @@ const Header = (props: HeaderProps) => {
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [openNavbar]);
+  }, [openNavbar, preventPageScrolling]);
 
   const toggleNavbarHandler = () => {
     setOpenNavbar((prevState) => (prevState = !prevState));

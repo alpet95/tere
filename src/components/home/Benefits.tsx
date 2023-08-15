@@ -22,8 +22,11 @@ const Benefits = (props: BenefitsProps) => {
   const slides = data.slides;
 
   const pagination: PaginationOptions = {
-    el: ".pagination-container",
+    el: ".pagination-benefits",
     clickable: true,
+    renderBullet: function (_, className) {
+      return `<span class="${className}"></span>`;
+    },
   };
 
   const autoplay: AutoplayOptions = {
@@ -56,56 +59,51 @@ const Benefits = (props: BenefitsProps) => {
           breakpoints={breakpoints}
         >
           {slides.map((slide) => {
-            const key = slide.id;
-            const { src, alt } = slide.image;
-            const { title, description } = slide.text;
+            const { id: key, image, text } = slide;
 
             return (
               <SwiperSlide key={key} className={classes["swiper-item"]}>
                 <h4 className={classes["swiper-item-title"]}>
-                  <span>{title.span}</span>
-                  {title.text}
+                  <span>{text.title.span}</span>
+                  {text.title.text}
                 </h4>
                 <Image
                   className={classes["swiper-item-image"]}
-                  src={src}
-                  alt={alt}
+                  src={image.src}
+                  alt={image.alt}
                   width={225}
                   height={220}
                 />
                 <p className={classes["swiper-item-description"]}>
-                  {description}
+                  {text.description}
                 </p>
               </SwiperSlide>
             );
           })}
         </Swiper>
-        <div
-          className={`pagination-container ${classes["swiper-pagination"]}`}
-        ></div>
+
+        <div className="pagination-benefits swiper-pagination"></div>
       </div>
 
       <div className={classes["benefits-block"]}>
         {slides.map((slide) => {
-          const key = slide.id;
-          const { src, alt } = slide.image;
-          const { title, description } = slide.text;
+          const { id: key, image, text } = slide;
 
           return (
             <div className={classes["benefits-item"]} key={key}>
               <div className={classes["benefits-item-text"]}>
                 <h4 className={classes["benefits-item-title"]}>
-                  <span>{title.span}</span>
-                  {title.text}
+                  <span>{text.title.span}</span>
+                  {text.title.text}
                 </h4>
                 <p className={classes["benefits-item-description"]}>
-                  {description}
+                  {text.description}
                 </p>
               </div>
               <Image
                 className={classes["benefits-item-image"]}
-                src={src}
-                alt={alt}
+                src={image.src}
+                alt={image.alt}
                 width={225}
                 height={173}
                 priority

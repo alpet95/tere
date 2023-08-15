@@ -22,7 +22,7 @@ const HowItWorks = (props: HowItWorksProps) => {
   const formattedHeading = addGreenToHeading(heading);
 
   const pagination: PaginationOptions = {
-    el: ".swiper-pagination",
+    el: ".pagination-howitworks",
     clickable: true,
     renderBullet: function (_, className) {
       return `<span class="${className}"></span>`;
@@ -46,10 +46,11 @@ const HowItWorks = (props: HowItWorksProps) => {
     <section className={classes.section}>
       <h2
         className={classes.heading}
-        dangerouslySetInnerHTML={{ __html: formattedHeading }} />
+        dangerouslySetInnerHTML={{ __html: formattedHeading }}
+      />
       <p className={classes.description}>{description}</p>
 
-      <div className={classes["swiper-demo"]}>
+      <div className={classes["steps-mobile"]}>
         <Swiper
           className={classes["swiper-container"]}
           modules={[Pagination, Autoplay]}
@@ -75,12 +76,10 @@ const HowItWorks = (props: HowItWorksProps) => {
           })}
         </Swiper>
 
-        <div
-          className={`swiper-pagination ${classes["swiper-pagination"]}`}
-        ></div>
+        <div className="pagination-howitworks swiper-pagination"></div>
       </div>
 
-      <div className={classes.main}>
+      <div className={classes["steps-desktop"]}>
         {slides.map((slide, index) => {
           const { id: key, image, text } = slide;
 
@@ -92,12 +91,14 @@ const HowItWorks = (props: HowItWorksProps) => {
             >
               <Image src={image.src} alt={image.alt} width={55} height={55} />
               <h4 className={classes["steps-item-title"]}>{text.title}</h4>
-              <p className={classes["steps-item-description"]}>{text.description}</p>
+              <p className={classes["steps-item-description"]}>
+                {text.description}
+              </p>
             </div>
           );
         })}
 
-        <div className={classes.image}>
+        <div className={classes["main-image"]}>
           <Image
             src={image.src}
             alt={image.alt}

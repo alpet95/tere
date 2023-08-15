@@ -1,12 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  env: {
+    NEXT_PUBLIC_BASE_URL: "http://localhost:3000",
+    NEXT_PUBLIC_API_URL: "http://localhost:3000/api",
+  },
 };
 
 module.exports = nextConfig;
-// module.exports = {
-//   env: {
-//     web_endpoint: "http://localhost:3000",
-//     api_endpoint: "http://localhost:3000/api",
-//   },
-// };
