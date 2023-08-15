@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
-import path from "path";
+import Head from "next/head";
 
+import { getHomePageData } from "@/lib/load-page-data";
 import { PageComponent } from "@/helpers/PageComponent";
-import { dataFolderPath, getPageData } from "@/helpers/data-utilities";
 
 interface HomeProps {
   data: any[];
@@ -13,15 +13,21 @@ const Home = (props: HomeProps) => {
 
   return (
     <Fragment>
+      <Head>
+        <title>Tere | Home</title>
+        <meta
+          name="description"
+          content="Join our platform today to take advantage of competitive fares and opportunities for increased income."
+        />
+      </Head>
       <PageComponent data={data} />
     </Fragment>
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   try {
-    const homePage = path.join(dataFolderPath, "home");
-    const data = await getPageData(homePage);
+    const data = await getHomePageData();
 
     return {
       props: { data },

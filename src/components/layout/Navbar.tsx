@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 import classes from "./Navbar.module.scss";
 
@@ -10,7 +10,7 @@ interface NavbarProps {
     href: string;
     name: string;
   }[];
-  className?: string | false;
+  className?: string;
   closeNavbarHandler?: () => void;
 }
 
@@ -25,17 +25,9 @@ interface NavbarItemProps {
 
 const NavbarItem = (props: NavbarItemProps) => {
   const { item, closeNavbarHandler } = props;
-  const activeRoute = useRouter().asPath;
-  let activeClass;
-
-  useEffect(() => {
-    activeClass = `${
-      activeRoute === item.href && classes["navbar-item-active"]
-    }`;
-  }, [item.href]);
 
   return (
-    <li className={`${classes["navbar-item"]} ${activeClass}`}>
+    <li className={classes["navbar-item"]}>
       <Link href={item.href} onClick={closeNavbarHandler}>
         {item.name}
       </Link>
@@ -59,6 +51,14 @@ const Navbar = (props: NavbarProps) => {
           ))}
         </ul>
       </nav>
+      <div className={classes["navbar-image"]}>
+        <Image
+          src="/images/benefits/benefits-image-3.png"
+          alt="Navbar Image"
+          fill
+          sizes="(min-width: 769px) 100vw, (min-width: 1025px) 100vw, 100vw"
+        />
+      </div>
     </div>
   );
 };

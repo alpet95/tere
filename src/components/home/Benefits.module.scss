@@ -20,15 +20,6 @@
   }
 }
 
-@mixin item-description {
-  margin: 0.5rem 0;
-
-  font-size: 1.1rem;
-  font-weight: 500;
-  line-height: 1.2;
-  color: theme.$color-grey-200;
-}
-
 @mixin item-shadow {
   box-shadow: 0 0 4px theme.$color-green;
   border-radius: 0.5rem;
@@ -80,12 +71,6 @@
 
   &-image {
     margin: 0.5rem 0;
-    height: auto;
-    object-fit: contain;
-  }
-
-  &-description {
-    @include item-description;
   }
 }
 
@@ -134,13 +119,8 @@
       @include item-title;
     }
 
-    &-description {
-      @include item-description;
-    }
-
     &-image {
-      flex: 1;
-      object-fit: contain;
+      flex: 0 1 auto;
     }
   }
 }
@@ -178,6 +158,7 @@
 
     &-image {
       max-width: 248px;
+      width: auto;
       height: 226px;
     }
   }

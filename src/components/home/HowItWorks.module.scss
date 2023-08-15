@@ -1,7 +1,6 @@
 @use "@/styles/theme.module" as theme;
 
 .section {
-  // margin-bottom: 2rem;
   padding: 1rem 0;
 }
 
@@ -17,12 +16,7 @@
   margin: 0.5rem auto 1rem;
   max-width: 425px;
 
-  font-size: 1.1rem;
-  font-weight: 500;
-  line-height: 1.2;
   text-align: center;
-
-  color: theme.$color-grey-200;
 }
 
 .image {
@@ -31,10 +25,6 @@
   margin: 1rem 0;
   width: 100%;
   height: 448px;
-
-  img {
-    object-fit: contain;
-  }
 }
 
 .main {
@@ -75,13 +65,6 @@
     font-weight: 800;
     text-transform: uppercase;
   }
-
-  &-description {
-    font-size: 1.1rem;
-    font-weight: 500;
-    line-height: 1.2;
-    color: theme.$color-grey-200;
-  }
 }
 
 .swiper-pagination {
@@ -105,7 +88,6 @@
 
   .description {
     max-width: 600px;
-    font-size: 1.4rem;
   }
 
   .swiper-demo {
@@ -160,9 +142,7 @@
 
     &-description {
       font-size: 1.25rem;
-      font-weight: 500;
       line-height: 1.3;
-      color: theme.$color-grey-200;
     }
 
     img {

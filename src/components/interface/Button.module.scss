@@ -1,9 +1,11 @@
 @use "@/styles/theme.module" as theme;
 
 .button {
+  margin: 0.5rem;
   padding: 0.5rem 1.1rem;
-  background-color: theme.$color-black;
+  width: 200px;
   border-radius: 0.35rem;
+  background-color: theme.$color-black;
 
   font-size: 0.85rem;
   font-weight: 800;
@@ -11,7 +13,7 @@
   color: theme.$color-white;
 
   @media screen and (min-width: 1025px) {
-    padding: 0.85rem 2rem;
-    font-size: 1.5rem;
+    padding: 0.5rem 1.25rem;
+    font-size: 1.25rem;
   }
 }

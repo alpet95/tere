@@ -71,7 +71,7 @@ const Benefits = (props: BenefitsProps) => {
                   src={src}
                   alt={alt}
                   width={225}
-                  height={173}
+                  height={220}
                 />
                 <p className={classes["swiper-item-description"]}>
                   {description}
@@ -108,6 +108,7 @@ const Benefits = (props: BenefitsProps) => {
                 alt={alt}
                 width={225}
                 height={173}
+                priority
               />
             </div>
           );
