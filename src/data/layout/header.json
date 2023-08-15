@@ -8,12 +8,12 @@
     },
     {
       "id": "about",
-      "href": "/about",
+      "href": "/",
       "name": "About"
     },
     {
       "id": "benefits",
-      "href": "/benefits",
+      "href": "/",
       "name": "Benefits"
     }
   ]
